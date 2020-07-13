@@ -14,15 +14,13 @@ function secondLowest(array) {
     }
   }
 
-  // compare prop value to value before
-  //   for (let num in frequency){
-  //     if(frequency[num] > ]){
-  //       return frequency[num]
-  //     } else {
-  // }
-  //   }
+  // sort keys from highest to lowest
+  const sorted = Object.keys(frequency).sort((a, b) => {
+    return frequency[b] - frequency[a];
+  });
 
-  return frequency;
+  //return second entry
+  return sorted[1];
 }
 
 secondLowest([4, 3, 1, 1, 2]);
