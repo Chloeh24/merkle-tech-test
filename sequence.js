@@ -2,7 +2,7 @@ function longestsequence(seq) {
   //highest value
 
   let letterCount = {};
-  let count = 0;
+  let count = 1;
   let biggest = {};
   //loop through each letter
   for (let i = 1; i < seq.length; i++) {
@@ -10,7 +10,10 @@ function longestsequence(seq) {
     if (!letterCount[seq[i]]) letterCount[seq[i]] = 1;
     else if (seq[i] === seq[i - 1]) {
       letterCount[seq[i]]++;
-      if (letterCount[seq[i]] > count) biggest[seq[i]] = letterCount[seq[i]];
+      if (letterCount[seq[i]] > count) {
+        biggest[seq[i]] = letterCount[seq[i]];
+        count++
+      }
     }
   }
 
