@@ -1,23 +1,21 @@
 function longestsequence(seq) {
   //highest value
-  let max = 1;
-  //initial count
+
+  let letterCount = {};
   let count = 0;
-  let letter = "";
+  let biggest = {};
   //loop through each letter
   for (let i = 1; i < seq.length; i++) {
     //if letter is the same as before then increase count
-    if (seq[i] === seq[i - 1]) count++;
-    else {
-      // if current count is higher than max recorded value, update it
-      if (count > max) {
-        max = count;
-        letter = seq[i - 1];
-      }
-      count = 1;
+    if (!letterCount[seq[i]]) letterCount[seq[i]] = 1;
+    else if (seq[i] === seq[i - 1]) {
+      letterCount[seq[i]]++;
+      if (letterCount[seq[i]] > count) biggest[seq[i]] = letterCount[seq[i]];
     }
   }
-  return "{" + letter + ":" + max + "}";
+
+  return biggest;
 }
 
-longestsequence("dghhhmhmx");
+// longestsequence("dghhhmhmx");
+longestsequence("dhkkhhKKKt");
